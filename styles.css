@@ -1,0 +1,77 @@
+
+:root{
+  --bg: #0b1020;
+  --card: #161b2e;
+  --text: #e6e9f3;
+  --muted: #aab3d0;
+  --accent: #5b8cff;
+  --accent-2: #7ef0ff;
+  --border: #253052;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f6f8ff;
+    --card: #ffffff;
+    --text: #0b1020;
+    --muted: #4b556b;
+    --accent: #3056ff;
+    --accent-2: #00bcd4;
+    --border: #e6eaf5;
+    --shadow: 0 10px 30px rgba(16,23,61,.08);
+  }
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 700px at 10% -10%, rgba(91,140,255,.18), transparent 60%),
+              radial-gradient(900px 600px at 110% 10%, rgba(126,240,255,.18), transparent 50%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.4;
+}
+
+.page{max-width:1100px;margin:32px auto;padding:0 16px}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:18px;
+}
+.topbar h1{font-size:clamp(18px,2.2vw,28px);margin:0;font-weight:700}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+
+.btn,.file-label{
+  background:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+  color:white;border:none;border-radius:14px;padding:10px 14px;font-weight:600;
+  box-shadow:var(--shadow); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+}
+.file-label{position:relative;overflow:hidden}
+.file-label input{position:absolute;inset:0;opacity:0;cursor:pointer}
+
+.player-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--card);
+  border:1px solid var(--border);
+  border-radius:20px; padding:14px; box-shadow:var(--shadow);
+  display:grid; gap:12px;
+}
+.player-card video{
+  width:100%; height:auto; border-radius:12px; display:block; background:#000;
+  max-height:70vh; object-fit:contain;
+}
+
+.controls{
+  display:grid; grid-template-columns:auto 1fr auto auto auto auto auto auto;
+  gap:10px; align-items:center;
+}
+.seek{width:100%}
+.volume{width:110px}
+.select{
+  padding:8px 10px; border-radius:12px; border:1px solid var(--border);
+  background:transparent; color:var(--text);
+}
+.time{font-variant-numeric: tabular-nums; color:var(--muted)}
+
+.tips{color:var(--muted); font-size:.95rem}
+kbd{background:var(--card); border:1px solid var(--border); border-radius:6px; padding:.1rem .35rem}
