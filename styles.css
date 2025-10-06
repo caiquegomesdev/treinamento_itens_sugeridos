@@ -576,3 +576,15 @@
     .loading {
       animation: pulse 2s infinite;
     }
+/* Oculta controles no modo tela cheia */
+.player-wrapper:fullscreen .controls-wrapper {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Mostra os controles quando houver a classe .show-controls */
+.player-wrapper:fullscreen.show-controls .controls-wrapper {
+  opacity: 1;
+  pointer-events: auto;
+}

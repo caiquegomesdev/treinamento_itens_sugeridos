@@ -257,16 +257,39 @@
         }
       });
 
-      function showControls() {
-        videoContainer.classList.add('show-controls');
-        clearTimeout(hideControlsTimeout);
-        
-        if (!video.paused) {
-          hideControlsTimeout = setTimeout(() => {
-            videoContainer.classList.remove('show-controls');
-          }, 3000);
-        }
-      }
+      //function showControls() {
+      //  videoContainer.classList.add('show-controls');
+      //  clearTimeout(hideControlsTimeout);
+      //  
+      //  if (!video.paused) {
+       //   hideControlsTimeout = setTimeout(() => {
+     //       videoContainer.classList.remove('show-controls');
+      //    }, 3000);
+      //  }
+     // }
+
+     function showControls() {
+  const isFullscreen = !!document.fullscreenElement;
+
+  if (isFullscreen) {
+    playerWrapper.classList.add('show-controls');
+    clearTimeout(hideControlsTimeout);
+
+    hideControlsTimeout = setTimeout(() => {
+      playerWrapper.classList.remove('show-controls');
+    }, 3000);
+  } else {
+    videoContainer.classList.add('show-controls');
+    clearTimeout(hideControlsTimeout);
+
+    if (!video.paused) {
+      hideControlsTimeout = setTimeout(() => {
+        videoContainer.classList.remove('show-controls');
+      }, 3000);
+    }
+  }
+}
+
 
       playPauseBtn.addEventListener('click', togglePlay);
       centerPlay.addEventListener('click', togglePlay);
