@@ -70,8 +70,8 @@
     }
 
     .logo-icon {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -200,9 +200,9 @@
     .video-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.8));
+      background: linear-gradient(to bottom, transparent 90%, rgba(0, 0, 0, 0.8)) !important;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.15s ease;
       pointer-events: none;
     }
 
@@ -588,3 +588,10 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Deixa o fundo limpo no fullscreen, mas mostra sombra leve quando controles aparecem */
+.player-wrapper:fullscreen .video-overlay {
+  background: transparent !important;
+  transition: background 0.15s ease;
+}
+
